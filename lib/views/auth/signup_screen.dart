@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ighty_support/controller/auth/signup_controller.dart';
 import 'package:ighty_support/generated/assets.dart';
 import 'package:ighty_support/utils/all_imports.dart';
+import 'package:ighty_support/utils/app_string.dart';
 import 'package:ighty_support/utils/comman_background.dart';
 
 class SignupScreen extends GetView<SignupController> {
@@ -20,12 +21,12 @@ class SignupScreen extends GetView<SignupController> {
               Image.asset(Assets.iconsIghtyAppLogo, height: 112),
               SizedBox(height: 10),
               AppText(
-                text: "Welcome to Ightysupport",
+                text: AppString.welcomeToIghty,
                 textSize: 22,
                 fontWeight: FontWeight.bold,
               ),
               SizedBox(height: 10),
-              AppText(text: "Lets bridge...", color: Color(0xff969AA8)),
+              AppText(text: AppString.letsBridge, color: Color(0xff969AA8)),
               SizedBox(height: 10),
               Obx(
                 () => controller.signupDone.value == false
@@ -67,24 +68,30 @@ class SignupScreen extends GetView<SignupController> {
                                   ),
                                   child: Obx(
                                     () => ClipRRect(
-                                      borderRadius: BorderRadius.circular(100),
-                                      child: controller.imagePath.value != ""
-                                          ? Image.file(
-                                              File(controller.imagePath.value),
-                                              height: 70,
-                                              fit: BoxFit.cover,
-                                            )
-                                          : Icon(
-                                              Icons.person,
-                                              color: AppColor.blackColor,
-                                              size: 26,
-                                            ),
+                                      borderRadius:
+                                          BorderRadius.circular(100),
+                                      child:
+                                          controller.imagePath.value != ""
+                                              ? Image.file(
+                                                  File(
+                                                    controller
+                                                        .imagePath.value,
+                                                  ),
+                                                  height: 70,
+                                                  fit: BoxFit.cover,
+                                                )
+                                              : Icon(
+                                                  Icons.person,
+                                                  color: AppColor.blackColor,
+                                                  size: 26,
+                                                ),
                                     ),
                                   ),
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    controller.cameraHelper.openImagePicker();
+                                    controller.cameraHelper
+                                        .openImagePicker();
                                   },
                                   child: CircleAvatar(
                                     backgroundColor: AppColor.themeColor,
@@ -99,56 +106,56 @@ class SignupScreen extends GetView<SignupController> {
                               ],
                             ),
                             AppTextField(
-                              title: "Name *",
+                              title: AppString.name,
                               titleSpacing: 4,
-                              hintText: "Enter your name",
+                              hintText: AppString.enterName,
                               contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16,
                                 vertical: 14,
                               ),
                             ),
                             AppTextField(
-                              title: "Email *",
+                              title: AppString.emailRequired,
                               titleSpacing: 4,
                               keyboardType: TextInputType.emailAddress,
-                              hintText: "Enter your email",
+                              hintText: AppString.enterEmail,
                               contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16,
                                 vertical: 14,
                               ),
                             ),
                             AppTextField(
-                              title: "Password *",
+                              title: AppString.passwordRequired,
                               titleSpacing: 4,
                               keyboardType: TextInputType.visiblePassword,
-                              hintText: "Enter your password",
+                              hintText: AppString.enterPassword,
                               contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16,
                                 vertical: 14,
                               ),
                             ),
                             AppTextField(
-                              title: "Phone Number *",
+                              title: AppString.phoneNumberRequired,
                               titleSpacing: 4,
                               keyboardType: TextInputType.phone,
-                              hintText: "Enter your number",
+                              hintText: AppString.enterPhoneNumber,
                               contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16,
                                 vertical: 14,
                               ),
                             ),
                             AppTextField(
-                              title: "Address *",
+                              title: AppString.addressRequired,
                               titleSpacing: 4,
-                              keyboardType: TextInputType.phone,
-                              hintText: "Enter your address",
+                              keyboardType: TextInputType.streetAddress,
+                              hintText: AppString.enterAddress,
                               contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16,
                                 vertical: 14,
                               ),
                             ),
                             AppButton(
-                              text: "Create An Account",
+                              text: AppString.createAnAccount,
                               onTap: () {
                                 controller.signupDone.value = true;
                               },
@@ -172,10 +179,10 @@ class SignupScreen extends GetView<SignupController> {
                                       fontSize: AppTextSize.textSize14,
                                       fontWeight: AppTextWeight.semiBoldText,
                                     ),
-                                    text: "Alerady Have Account? ",
+                                    text: AppString.alreadyHaveAccount,
                                   ),
                                   TextSpan(
-                                    text: "Sign In",
+                                    text: AppString.signInLink,
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         Get.back();
@@ -212,12 +219,11 @@ class SignupScreen extends GetView<SignupController> {
                               lineHeight: 1.3,
                               textSize: 19,
                               color: Color(0xff292825),
-                              text:
-                                  "Hurrah!\nYour account will activated soon.....",
+                              text: AppString.accountActivationMsg,
                             ),
                             SizedBox(height: 40),
                             AppButton(
-                              text: "Home",
+                              text: AppString.home,
                               onTap: () {
                                 controller.signupDone.value = false;
                               },

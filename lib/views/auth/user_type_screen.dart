@@ -1,6 +1,7 @@
 import 'package:ighty_support/generated/assets.dart';
 import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
+import 'package:ighty_support/utils/app_string.dart';
 import 'package:ighty_support/utils/comman_background.dart';
 
 class UserTypeScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class UserTypeScreen extends StatelessWidget {
             Image.asset(Assets.iconsIghtyAppLogo),
             Spacer(),
             AppText(
-              text: "We are there when \nyou need IT !",
+              text: AppString.tagLine,
               textAlign: TextAlign.center,
               lineHeight: 1.3,
               textSize: 26,
@@ -24,14 +25,14 @@ class UserTypeScreen extends StatelessWidget {
             ),
             SizedBox(height: 37),
             AppButton(
-              text: "ADMIN",
+              text: AppString.admin,
               onTap: () {
                 Get.toNamed(AppRoutes.loginScreen);
               },
             ),
             SizedBox(height: 30),
             AppButton(
-              text: "TECHNCIAN",
+              text: AppString.technician,
               onTap: () {
                 Get.toNamed(AppRoutes.loginScreen);
               },

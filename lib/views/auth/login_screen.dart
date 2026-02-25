@@ -2,6 +2,7 @@ import 'package:ighty_support/controller/auth/login_controller.dart';
 import 'package:ighty_support/generated/assets.dart';
 import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
+import 'package:ighty_support/utils/app_string.dart';
 import 'package:ighty_support/utils/comman_background.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -19,21 +20,21 @@ class LoginScreen extends GetView<LoginController> {
               Image.asset(Assets.iconsIghtyAppLogo),
               SizedBox(height: 11),
               AppText(
-                text: "Lets bridge...",
+                text: AppString.letsBridge,
                 textSize: 14,
                 color: Color(0xff969AA8),
               ),
               SizedBox(height: 47),
               AppTextField(
-                title: "Email",
-                hintText: "Enter your email",
+                title: AppString.email,
+                hintText: AppString.enterEmail,
                 keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: 30),
               Obx(
                 () => AppTextField(
-                  title: "Password",
-                  hintText: "Enter your password",
+                  title: AppString.password,
+                  hintText: AppString.enterPassword,
                   obscureText: controller.isObscure.value,
                   keyboardType: TextInputType.visiblePassword,
                   suffixIcon: GestureDetector(
@@ -53,7 +54,7 @@ class LoginScreen extends GetView<LoginController> {
                 children: [
                   Spacer(),
                   AppText(
-                    text: "Forgot Password?",
+                    text: AppString.forgotPassword,
                     underline: true,
                     underlineColor: AppColor.themeColor,
                     color: AppColor.themeColor,
@@ -62,8 +63,10 @@ class LoginScreen extends GetView<LoginController> {
               ),
               SizedBox(height: 34),
               AppButton(
-                text: "Sign-in",
-                onTap: () {},
+                text: AppString.signIn,
+                onTap: () {
+                  Get.offAllNamed(AppRoutes.dashboardScreen);
+                },
                 borderRadius: 23,
                 isGradient: true,
               ),
@@ -85,10 +88,10 @@ class LoginScreen extends GetView<LoginController> {
                         fontSize: AppTextSize.textSize14,
                         fontWeight: AppTextWeight.semiBoldText,
                       ),
-                      text: AppString.dontHave.tr,
+                      text: AppString.dontHave,
                     ),
                     TextSpan(
-                      text: AppString.signUp.tr,
+                      text: AppString.signUp,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           Get.toNamed(AppRoutes.signupScreen);

@@ -8,6 +8,13 @@ import 'package:ighty_support/views/auth/login_screen.dart';
 import 'package:ighty_support/views/auth/signup_screen.dart';
 import 'package:ighty_support/views/auth/splash_screen.dart';
 import 'package:ighty_support/views/auth/user_type_screen.dart';
+import 'package:ighty_support/views/dashboard/all_tasks_screen.dart';
+import 'package:ighty_support/views/dashboard/dashboard_screen.dart';
+import 'package:ighty_support/views/dashboard/group_chat_screen.dart';
+import 'package:ighty_support/views/dashboard/single_chat_screen.dart';
+import 'package:ighty_support/views/dashboard/file_upload_screen.dart';
+import 'package:ighty_support/views/dashboard/ticket_detail_screen.dart';
+import 'package:ighty_support/views/profile/profile_screen.dart';
 
 class RoutesGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -31,6 +38,34 @@ class RoutesGenerator {
       case AppRoutes.signupScreen:
         widgetScreen = SignupScreen();
         binding = SignupBinding();
+        break;
+      case AppRoutes.dashboardScreen:
+        widgetScreen = const DashboardScreen();
+        binding = DashboardBinding();
+        break;
+      case AppRoutes.profileScreen:
+        widgetScreen = const ProfileScreen();
+        binding = ProfileBinding();
+        break;
+      case AppRoutes.allTasksScreen:
+        widgetScreen = const AllTasksScreen();
+        binding = AllTasksBinding();
+        break;
+      case AppRoutes.singleChatScreen:
+        widgetScreen = const SingleChatScreen();
+        binding = SingleChatBinding();
+        break;
+      case AppRoutes.groupChatScreen:
+        widgetScreen = const GroupChatScreen();
+        binding = GroupChatBinding();
+        break;
+      case AppRoutes.ticketDetailScreen:
+        widgetScreen = const TicketDetailScreen();
+        binding = TicketDetailBinding();
+        break;
+      case AppRoutes.fileUploadScreen:
+        widgetScreen = const FileUploadScreen();
+        binding = FileUploadBinding();
         break;
       default:
         widgetScreen = _errorRoute();

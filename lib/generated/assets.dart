@@ -4,6 +4,7 @@ class Assets {
 
   static const String iconsIghtyAppLogo = 'assets/icons/ighty_app_logo.png';
   static const String imagesSignupSucess = 'assets/images/signup_sucess_bg.png';
+  static const String iconProfileIcon = 'assets/icons/profile_icon.png';
   static const String iconSignupSucessIcon =
       'assets/icons/signup_sucess_icon.png';
   static const String imagesBackgroundImage =

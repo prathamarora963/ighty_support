@@ -12,3 +12,4 @@ export '../../../../utils/common_alert_sheet.dart';
 export '../../../../utils/common_app_bar.dart';
 export '../../../../utils/app_text_size.dart';
 export '../../../../utils/dotted_border.dart';
+export 'image_view.dart';
