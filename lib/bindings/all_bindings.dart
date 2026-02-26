@@ -10,6 +10,14 @@ import 'package:ighty_support/controller/dashboard/single_chat_controller.dart';
 import 'package:ighty_support/controller/dashboard/ticket_detail_controller.dart';
 import 'package:ighty_support/controller/dashboard/file_upload_controller.dart';
 import 'package:ighty_support/controller/profile/profile_controller.dart';
+import 'package:ighty_support/controller/profile/change_password_controller.dart';
+import 'package:ighty_support/controller/profile/edit_profile_controller.dart';
+import 'package:ighty_support/controller/dashboard/admin_dashboard_controller.dart';
+import 'package:ighty_support/controller/dashboard/active_tech_controller.dart';
+import 'package:ighty_support/controller/dashboard/all_customers_controller.dart';
+import 'package:ighty_support/controller/dashboard/register_customer_controller.dart';
+import 'package:ighty_support/controller/dashboard/admin_leave_management_controller.dart';
+import 'package:ighty_support/controller/dashboard/admin_ongoing_tasks_controller.dart';
 import '../utils/all_imports.dart';
 
 class LoginBinding extends Bindings {
@@ -36,6 +44,15 @@ class DashboardBinding extends Bindings {
   }
 }
 
+class AdminDashboardBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AdminDashboardController());
+    Get.lazyPut(() => ChatController());
+    Get.lazyPut(() => NotificationsController());
+  }
+}
+
 class AllTasksBinding extends Bindings {
   @override
   void dependencies() {
@@ -47,6 +64,20 @@ class ProfileBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => ProfileController());
+  }
+}
+
+class ChangePasswordBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => ChangePasswordController());
+  }
+}
+
+class EditProfileBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => EditProfileController());
   }
 }
 
@@ -86,5 +117,40 @@ class FileUploadBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => FileUploadController());
+  }
+}
+
+class ActiveTechBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => ActiveTechController());
+  }
+}
+
+class AllCustomersBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AllCustomersController());
+  }
+}
+
+class RegisterCustomerBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => RegisterCustomerController());
+  }
+}
+
+class AdminLeaveManagementBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AdminLeaveManagementController());
+  }
+}
+
+class AdminOngoingTasksBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AdminOngoingTasksController());
   }
 }

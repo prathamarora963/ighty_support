@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/observers/route_observer.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ighty_support/routes/routes_generator.dart';
 import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/app_color.dart';
 import 'dart:io';
 import 'package:loader_overlay/loader_overlay.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 

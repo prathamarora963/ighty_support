@@ -12,4 +12,13 @@ class AppRoutes {
   static const groupChatScreen = '/GroupChatScreen';
   static const ticketDetailScreen = '/TicketDetailScreen';
   static const fileUploadScreen = '/FileUploadScreen';
+  static const changePasswordScreen = '/ChangePasswordScreen';
+  static const editProfileScreen = '/EditProfileScreen';
+  static const policyScreen = '/PolicyScreen';
+  static const termsScreen = '/TermsScreen';
+  static const activeTechScreen = '/ActiveTechScreen';
+  static const allCustomersScreen = '/AllCustomersScreen';
+  static const registerCustomerScreen = '/RegisterCustomerScreen';
+  static const adminLeaveManagementScreen = '/AdminLeaveManagementScreen';
+  static const adminOngoingTasksScreen = '/AdminOngoingTasksScreen';
 }

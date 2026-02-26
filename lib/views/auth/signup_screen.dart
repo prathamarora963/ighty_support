@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:ighty_support/controller/auth/signup_controller.dart';
 import 'package:ighty_support/generated/assets.dart';
+import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
 import 'package:ighty_support/utils/app_string.dart';
 import 'package:ighty_support/utils/comman_background.dart';
+import 'package:ighty_support/utils/db_helper.dart';
 
 class SignupScreen extends GetView<SignupController> {
   const SignupScreen({super.key});
@@ -68,30 +70,24 @@ class SignupScreen extends GetView<SignupController> {
                                   ),
                                   child: Obx(
                                     () => ClipRRect(
-                                      borderRadius:
-                                          BorderRadius.circular(100),
-                                      child:
-                                          controller.imagePath.value != ""
-                                              ? Image.file(
-                                                  File(
-                                                    controller
-                                                        .imagePath.value,
-                                                  ),
-                                                  height: 70,
-                                                  fit: BoxFit.cover,
-                                                )
-                                              : Icon(
-                                                  Icons.person,
-                                                  color: AppColor.blackColor,
-                                                  size: 26,
-                                                ),
+                                      borderRadius: BorderRadius.circular(100),
+                                      child: controller.imagePath.value != ""
+                                          ? Image.file(
+                                              File(controller.imagePath.value),
+                                              height: 70,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : Icon(
+                                              Icons.person,
+                                              color: AppColor.blackColor,
+                                              size: 26,
+                                            ),
                                     ),
                                   ),
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    controller.cameraHelper
-                                        .openImagePicker();
+                                    controller.cameraHelper.openImagePicker();
                                   },
                                   child: CircleAvatar(
                                     backgroundColor: AppColor.themeColor,
@@ -225,7 +221,7 @@ class SignupScreen extends GetView<SignupController> {
                             AppButton(
                               text: AppString.home,
                               onTap: () {
-                                controller.signupDone.value = false;
+                                Get.offAllNamed(AppRoutes.dashboardScreen);
                               },
                               width: Get.width - 200,
                             ),

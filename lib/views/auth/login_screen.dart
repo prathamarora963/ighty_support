@@ -4,6 +4,7 @@ import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
 import 'package:ighty_support/utils/app_string.dart';
 import 'package:ighty_support/utils/comman_background.dart';
+import 'package:ighty_support/utils/db_helper.dart';
 
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({super.key});
@@ -65,6 +66,7 @@ class LoginScreen extends GetView<LoginController> {
               AppButton(
                 text: AppString.signIn,
                 onTap: () {
+                  // Admin is 1, Technician is 2
                   Get.offAllNamed(AppRoutes.dashboardScreen);
                 },
                 borderRadius: 23,

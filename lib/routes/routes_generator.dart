@@ -15,6 +15,17 @@ import 'package:ighty_support/views/dashboard/single_chat_screen.dart';
 import 'package:ighty_support/views/dashboard/file_upload_screen.dart';
 import 'package:ighty_support/views/dashboard/ticket_detail_screen.dart';
 import 'package:ighty_support/views/profile/profile_screen.dart';
+import 'package:ighty_support/views/profile/change_password_screen.dart';
+import 'package:ighty_support/views/profile/edit_profile_screen.dart';
+import 'package:ighty_support/views/profile/policy_screen.dart';
+import 'package:ighty_support/views/profile/terms_screen.dart';
+import 'package:ighty_support/views/dashboard/admin_dashboard_screen.dart';
+import 'package:ighty_support/views/dashboard/active_tech_screen.dart';
+import 'package:ighty_support/views/dashboard/all_customers_screen.dart';
+import 'package:ighty_support/views/dashboard/register_customer_screen.dart';
+import 'package:ighty_support/views/dashboard/admin_leave_management_screen.dart';
+import 'package:ighty_support/views/dashboard/admin_ongoing_tasks_screen.dart';
+import 'package:ighty_support/utils/db_helper.dart';
 
 class RoutesGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -40,12 +51,32 @@ class RoutesGenerator {
         binding = SignupBinding();
         break;
       case AppRoutes.dashboardScreen:
-        widgetScreen = const DashboardScreen();
-        binding = DashboardBinding();
+        if (DbHelper().getUserRole() == 1) {
+          widgetScreen = const AdminDashboardScreen();
+          binding = AdminDashboardBinding();
+        } else {
+          widgetScreen = const DashboardScreen();
+          binding = DashboardBinding();
+        }
         break;
       case AppRoutes.profileScreen:
         widgetScreen = const ProfileScreen();
         binding = ProfileBinding();
+        break;
+      case AppRoutes.editProfileScreen:
+        widgetScreen = const EditProfileScreen();
+        // Uses edit profile binding if it exists or create one inside page if GetView is used.
+        binding = EditProfileBinding();
+        break;
+      case AppRoutes.policyScreen:
+        widgetScreen = const PolicyScreen();
+        break;
+      case AppRoutes.termsScreen:
+        widgetScreen = const TermsScreen();
+        break;
+      case AppRoutes.changePasswordScreen:
+        widgetScreen = const ChangePasswordScreen();
+        binding = ChangePasswordBinding();
         break;
       case AppRoutes.allTasksScreen:
         widgetScreen = const AllTasksScreen();
@@ -66,6 +97,26 @@ class RoutesGenerator {
       case AppRoutes.fileUploadScreen:
         widgetScreen = const FileUploadScreen();
         binding = FileUploadBinding();
+        break;
+      case AppRoutes.activeTechScreen:
+        widgetScreen = const ActiveTechScreen();
+        binding = ActiveTechBinding();
+        break;
+      case AppRoutes.allCustomersScreen:
+        widgetScreen = const AllCustomersScreen();
+        binding = AllCustomersBinding();
+        break;
+      case AppRoutes.registerCustomerScreen:
+        widgetScreen = const RegisterCustomerScreen();
+        binding = RegisterCustomerBinding();
+        break;
+      case AppRoutes.adminLeaveManagementScreen:
+        widgetScreen = const AdminLeaveManagementScreen();
+        binding = AdminLeaveManagementBinding();
+        break;
+      case AppRoutes.adminOngoingTasksScreen:
+        widgetScreen = const AdminOngoingTasksScreen();
+        binding = AdminOngoingTasksBinding();
         break;
       default:
         widgetScreen = _errorRoute();

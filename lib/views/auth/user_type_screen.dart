@@ -3,6 +3,7 @@ import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
 import 'package:ighty_support/utils/app_string.dart';
 import 'package:ighty_support/utils/comman_background.dart';
+import 'package:ighty_support/utils/db_helper.dart';
 
 class UserTypeScreen extends StatelessWidget {
   const UserTypeScreen({super.key});
@@ -27,6 +28,7 @@ class UserTypeScreen extends StatelessWidget {
             AppButton(
               text: AppString.admin,
               onTap: () {
+                DbHelper().saveUserRole(1); // 1 for Admin
                 Get.toNamed(AppRoutes.loginScreen);
               },
             ),
@@ -34,6 +36,7 @@ class UserTypeScreen extends StatelessWidget {
             AppButton(
               text: AppString.technician,
               onTap: () {
+                DbHelper().saveUserRole(2); // 2 for Technician
                 Get.toNamed(AppRoutes.loginScreen);
               },
               buttonColor: AppColor.blackColor,
