@@ -3,6 +3,7 @@ import 'package:ighty_support/generated/assets.dart';
 import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
 import 'package:ighty_support/utils/app_string.dart';
+import 'package:ighty_support/utils/comman_background.dart';
 
 class NotificationsTab extends GetView<NotificationsController> {
   const NotificationsTab({super.key});
@@ -10,19 +11,22 @@ class NotificationsTab extends GetView<NotificationsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          // ── Header ────────────────────────────────────────────────────
-          _buildHeader(),
+      body: CommanScaffold(
+        child: Column(
+          children: [
+            // ── Header ────────────────────────────────────────────────────
+            _buildHeader(),
 
-          // ── Notification List in white card ───────────────────────────
-          Expanded(
-            child: Obx(() => controller.notifications.isEmpty
-                ? _buildEmptyState()
-                : _buildList()),
-          ),
-        ],
+            // ── Notification List in white card ───────────────────────────
+            Expanded(
+              child: Obx(
+                () => controller.notifications.isEmpty
+                    ? _buildEmptyState()
+                    : _buildList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -30,7 +34,6 @@ class NotificationsTab extends GetView<NotificationsController> {
   // ── Header ─────────────────────────────────────────────────────────────────
   Widget _buildHeader() {
     return Container(
-      color: Colors.white,
       padding: const EdgeInsets.fromLTRB(20, 56, 20, 16),
       child: Row(
         children: [
@@ -97,9 +100,8 @@ class NotificationsTab extends GetView<NotificationsController> {
             endIndent: 16,
             color: Color(0xFFEEEEEE),
           ),
-          itemBuilder: (_, i) => _NotificationTile(
-            notification: controller.notifications[i],
-          ),
+          itemBuilder: (_, i) =>
+              _NotificationTile(notification: controller.notifications[i]),
         ),
       ),
     );

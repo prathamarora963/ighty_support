@@ -3,6 +3,7 @@ import 'package:ighty_support/generated/assets.dart';
 import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
 import 'package:ighty_support/utils/app_string.dart';
+import 'package:ighty_support/utils/comman_background.dart';
 
 class ChatTab extends GetView<ChatController> {
   const ChatTab({super.key});
@@ -10,26 +11,27 @@ class ChatTab extends GetView<ChatController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          // ── Header ────────────────────────────────────────────────────
-          Obx(() => _buildHeader()),
+      body: CommanScaffold(
+        child: Column(
+          children: [
+            // ── Header ────────────────────────────────────────────────────
+            Obx(() => _buildHeader()),
 
-          // ── Toggle Tabs ───────────────────────────────────────────────
-          Obx(() => _buildToggleTabs()),
+            // ── Toggle Tabs ───────────────────────────────────────────────
+            Obx(() => _buildToggleTabs()),
 
-          const SizedBox(height: 8),
+            const SizedBox(height: 8),
 
-          // ── List ──────────────────────────────────────────────────────
-          Expanded(
-            child: Obx(
-              () => controller.activeTab.value == 0
-                  ? _MessagesList(messages: controller.messages)
-                  : _GroupsList(groups: controller.groups),
+            // ── List ──────────────────────────────────────────────────────
+            Expanded(
+              child: Obx(
+                () => controller.activeTab.value == 0
+                    ? _MessagesList(messages: controller.messages)
+                    : _GroupsList(groups: controller.groups),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -40,7 +42,6 @@ class ChatTab extends GetView<ChatController> {
         ? AppString.letsTalk
         : AppString.letsDiscuss;
     return Container(
-      color: Colors.white,
       padding: const EdgeInsets.fromLTRB(20, 56, 20, 12),
       child: Row(
         children: [
@@ -481,7 +482,8 @@ class _Avatar extends StatelessWidget {
       ),
       child: ImageView.circle(
         image: url ?? '',
-        placeholder: 'assets/icons/profile_icon.png', // Fallback if url is null or empty
+        placeholder:
+            'assets/icons/profile_icon.png', // Fallback if url is null or empty
         fit: BoxFit.cover,
       ),
     );

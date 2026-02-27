@@ -1,5 +1,6 @@
 import 'package:ighty_support/controller/dashboard/active_tech_controller.dart';
 import 'package:ighty_support/generated/assets.dart';
+import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/all_imports.dart';
 import 'package:ighty_support/utils/comman_background.dart';
 
@@ -10,7 +11,7 @@ class ActiveTechScreen extends GetView<ActiveTechController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
-      body: SafeArea(
+      body: CommanScaffold(
         child: Column(
           children: [
             // Header
@@ -38,14 +39,17 @@ class ActiveTechScreen extends GetView<ActiveTechController> {
                       ),
                     ],
                   ),
-                  CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.transparent,
-                    child: Image.asset(
-                      Assets.iconProfileIcon,
-                      fit: BoxFit.cover,
-                      errorBuilder: (ctx, err, st) =>
-                          const Icon(Icons.account_circle, size: 40),
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppRoutes.profileScreen),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.transparent,
+                      child: Image.asset(
+                        Assets.iconProfileIcon,
+                        fit: BoxFit.cover,
+                        errorBuilder: (ctx, err, st) =>
+                            const Icon(Icons.account_circle, size: 40),
+                      ),
                     ),
                   ),
                 ],
@@ -186,7 +190,7 @@ class ActiveTechScreen extends GetView<ActiveTechController> {
               ),
             ),
           ],
-        ),
+        ).paddingSymmetric(vertical: 40),
       ),
     );
   }

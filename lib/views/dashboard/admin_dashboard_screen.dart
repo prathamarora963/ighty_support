@@ -1,18 +1,20 @@
 import 'package:ighty_support/controller/dashboard/admin_dashboard_controller.dart';
 import 'package:ighty_support/utils/all_imports.dart';
+import 'package:ighty_support/views/dashboard/admin_ongoing_tasks_screen.dart';
 import 'package:ighty_support/views/dashboard/tabs/admin_home_tab.dart';
+import 'package:ighty_support/views/dashboard/tabs/admin_ticket_screen.dart';
 import 'package:ighty_support/views/dashboard/tabs/chat_tab.dart';
 import 'package:ighty_support/views/dashboard/tabs/notifications_tab.dart';
 
 class AdminDashboardScreen extends GetView<AdminDashboardController> {
   const AdminDashboardScreen({super.key});
 
-  static const List<Widget> _tabs = [
-    AdminHomeTab(),
-    Center(child: Text("Technician Tab")),
-    Center(child: Text("Ticket Tab")),
-    ChatTab(),
-    NotificationsTab(),
+  static final List<Widget> _tabs = [
+    const AdminHomeTab(),
+    const AdminOngoingTasksScreen(),
+    AdminTicketScreen(),
+    const ChatTab(),
+    const NotificationsTab(),
   ];
 
   static const List<_NavItem> _navItems = [

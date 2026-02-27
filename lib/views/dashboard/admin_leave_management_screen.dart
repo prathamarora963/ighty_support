@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:ighty_support/controller/dashboard/admin_leave_management_controller.dart';
 import 'package:ighty_support/generated/assets.dart';
 import 'package:ighty_support/utils/app_text.dart';
+import 'package:ighty_support/utils/comman_background.dart';
 
 class AdminLeaveManagementScreen
     extends GetView<AdminLeaveManagementController> {
@@ -11,8 +12,7 @@ class AdminLeaveManagementScreen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
+      body: CommanScaffold(
         child: Column(
           children: [
             // Header
@@ -207,7 +207,7 @@ class AdminLeaveManagementScreen
             ),
             const SizedBox(height: 10),
           ],
-        ),
+        ).paddingSymmetric(vertical: 40),
       ),
     );
   }

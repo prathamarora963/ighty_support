@@ -48,6 +48,7 @@ class AdminDashboardBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => AdminDashboardController());
+    Get.lazyPut(() => AdminOngoingTasksController());
     Get.lazyPut(() => ChatController());
     Get.lazyPut(() => NotificationsController());
   }

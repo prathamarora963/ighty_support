@@ -19,7 +19,7 @@ class AllCustomersScreen extends GetView<AllCustomersController> {
         shape: const CircleBorder(),
         child: const Icon(Icons.add, color: Colors.white, size: 30),
       ),
-      body: SafeArea(
+      body: CommanScaffold(
         child: Column(
           children: [
             // Header
@@ -47,14 +47,17 @@ class AllCustomersScreen extends GetView<AllCustomersController> {
                       ),
                     ],
                   ),
-                  CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.transparent,
-                    child: Image.asset(
-                      Assets.iconProfileIcon,
-                      fit: BoxFit.cover,
-                      errorBuilder: (ctx, err, st) =>
-                          const Icon(Icons.account_circle, size: 40),
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppRoutes.profileScreen),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.transparent,
+                      child: Image.asset(
+                        Assets.iconProfileIcon,
+                        fit: BoxFit.cover,
+                        errorBuilder: (ctx, err, st) =>
+                            const Icon(Icons.account_circle, size: 40),
+                      ),
                     ),
                   ),
                 ],
@@ -161,7 +164,7 @@ class AllCustomersScreen extends GetView<AllCustomersController> {
               ),
             ),
           ],
-        ),
+        ).paddingSymmetric(vertical: 40),
       ),
     );
   }

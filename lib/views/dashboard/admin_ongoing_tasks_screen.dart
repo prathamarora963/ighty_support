@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ighty_support/controller/dashboard/admin_ongoing_tasks_controller.dart';
 import 'package:ighty_support/generated/assets.dart';
+import 'package:ighty_support/routes/routes_page.dart';
 import 'package:ighty_support/utils/app_text.dart';
 
 class AdminOngoingTasksScreen extends GetView<AdminOngoingTasksController> {
@@ -27,7 +28,7 @@ class AdminOngoingTasksScreen extends GetView<AdminOngoingTasksController> {
               mapToolbarEnabled: false,
             ),
           ),
-          
+
           // Header Overlay
           SafeArea(
             child: Padding(
@@ -61,14 +62,17 @@ class AdminOngoingTasksScreen extends GetView<AdminOngoingTasksController> {
                       ),
                     ],
                   ),
-                  CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.white,
-                    child: Image.asset(
-                      Assets.iconProfileIcon,
-                      fit: BoxFit.cover,
-                      errorBuilder: (ctx, err, st) =>
-                          const Icon(Icons.account_circle, size: 40),
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppRoutes.profileScreen),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.white,
+                      child: Image.asset(
+                        Assets.iconProfileIcon,
+                        fit: BoxFit.cover,
+                        errorBuilder: (ctx, err, st) =>
+                            const Icon(Icons.account_circle, size: 40),
+                      ),
                     ),
                   ),
                 ],
@@ -94,7 +98,7 @@ class AdminOngoingTasksScreen extends GetView<AdminOngoingTasksController> {
                     color: Colors.black12,
                     blurRadius: 15,
                     offset: Offset(0, -5),
-                  )
+                  ),
                 ],
               ),
               child: Column(
@@ -110,7 +114,7 @@ class AdminOngoingTasksScreen extends GetView<AdminOngoingTasksController> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  
+
                   // Horizontal List View
                   SizedBox(
                     height: 100,
@@ -118,7 +122,8 @@ class AdminOngoingTasksScreen extends GetView<AdminOngoingTasksController> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.technicians.length,
-                      separatorBuilder: (context, index) => const SizedBox(width: 20),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(width: 20),
                       itemBuilder: (context, index) {
                         final tech = controller.technicians[index];
                         return Column(
@@ -129,13 +134,16 @@ class AdminOngoingTasksScreen extends GetView<AdminOngoingTasksController> {
                               decoration: BoxDecoration(
                                 color: Colors.grey.shade300,
                                 shape: BoxShape.circle,
-                                border: Border.all(color: Colors.white, width: 2),
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2,
+                                ),
                                 boxShadow: const [
                                   BoxShadow(
                                     color: Colors.black12,
                                     blurRadius: 4,
                                     offset: Offset(0, 2),
-                                  )
+                                  ),
                                 ],
                               ),
                               child: ClipRRect(
